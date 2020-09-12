@@ -6,9 +6,13 @@ app.use(express.static('public', {
   setHeaders: function(res) {
     res.removeHeader("x-powered-by");
     res.removeHeader("set-cookie");
-    res.removeHeader("Date");
     res.removeHeader("Connection");
-    res.removeHeader("Cache-Control");
+    // res.removeHeader("Date");
+    // res.removeHeader("Last-Modified"); // this doesn't work
+    // res.set("Cache-Control", "no-store");
+    // res.set("Expires", 'Sat, 12 Sep 2001 08:48:28 GMT');
+    res.set("Date", 'Sat, 12 Sep 2020 20:33:28 GMT')
+    res.set("Last-Modified", 'Sat, 12 Sep 2020 0:10:28 GMT');
   }
 }));
 
